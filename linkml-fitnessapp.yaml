@@ -11,7 +11,7 @@ classes:
   User:
     description: A registered app user
     slots:
-      - user_id
+      - user
       - name
       - email
       - age

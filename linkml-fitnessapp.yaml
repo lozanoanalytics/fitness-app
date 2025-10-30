@@ -1,0 +1,40 @@
+id: fitness-schema
+name: FitnessAppModel
+description: Schema for the fitness tracking platform
+prefixes:
+  ex: https://example.org/fitness/
+types:
+  float: { base: float }
+  string: { base: str }
+
+classes:
+  User:
+    description: A registered app user
+    slots:
+      - user_id
+      - name
+      - email
+      - age
+      - workouts
+  Workout:
+    description: A recorded workout session
+    slots:
+      - workout_id
+      - date
+      - duration
+      - exercises
+  Exercise:
+    description: Individual exercise performed
+    slots:
+      - name
+      - sets
+      - reps
+      - weight
+
+slots:
+  user_id: { identifier: true, range: string }
+  workout_id: { identifier: true, range: string }
+  date: { range: date }
+  duration: { range: float, unit: minutes }
+  exercises: { multivalued: true, range: Exercise }
+  workouts: { multivalued: true, range: Workout }
